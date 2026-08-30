@@ -1,0 +1,830 @@
+```html
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ciao Fio 💙</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Georgia, serif;
+      color: #104d9e;
+      background: linear-gradient(
+        135deg,
+        #dff0ff,
+        #c9e3ff,
+        #edf7ff
+      );
+    }
+
+    .app {
+      width: min(1000px, 94%);
+      margin: 28px auto;
+      min-height: calc(100vh - 56px);
+      padding: 55px clamp(20px, 5vw, 65px);
+
+      border: 1px solid rgba(255,255,255,.85);
+      border-radius: 32px;
+
+      background: rgba(255,255,255,.43);
+
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+
+      box-shadow: 0 20px 60px rgba(40,100,170,.16);
+    }
+
+    .screen {
+      display: none;
+      animation: comparsa .4s ease;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    @keyframes comparsa {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      text-align: center;
+      font-size: clamp(58px, 9vw, 95px);
+      font-weight: 400;
+      font-style: italic;
+      margin: 0;
+    }
+
+    .heart {
+      color: #398df4;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 17px;
+      margin: 18px 0 42px;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      max-width: 760px;
+      margin: auto;
+    }
+
+    .card,
+    .love,
+    .back,
+    .footer-button {
+      border: 1px solid rgba(255,255,255,.9);
+
+      background: rgba(255,255,255,.48);
+
+      box-shadow: 0 12px 35px rgba(45,105,180,.13);
+
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+
+      color: #104d9e;
+      cursor: pointer;
+    }
+
+    .card {
+      min-height: 165px;
+      border-radius: 25px;
+
+      font-family: Georgia, serif;
+      font-size: 25px;
+
+      transition: .25s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      background: rgba(255,255,255,.68);
+    }
+
+    /* ICONE DEI QUATTRO PULSANTI */
+
+    .tile-icon {
+      display: block;
+      width: 42px;
+      height: 42px;
+      margin: 0 auto 15px;
+    }
+
+    .tile-icon svg {
+      width: 100%;
+      height: 100%;
+
+      fill: none;
+      stroke: #398df4;
+
+      stroke-width: 2.2;
+
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* PULSANTE 01/09/2026 */
+
+    .footer-button {
+      display: block;
+
+      margin: 34px auto 0;
+
+      padding: 13px 28px;
+
+      min-width: 180px;
+
+      border-radius: 17px;
+
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      font-style: italic;
+
+      transition: .2s;
+    }
+
+    .footer-button:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,.72);
+    }
+
+    /* PAGINE INTERNE */
+
+    .detail-head {
+      text-align: center;
+      position: relative;
+      margin-bottom: 25px;
+    }
+
+    .detail-head h2 {
+      font-size: 46px;
+      font-weight: 400;
+      margin: 10px;
+    }
+
+    .back {
+      position: absolute;
+
+      left: 0;
+      top: 0;
+
+      padding: 10px 16px;
+
+      border-radius: 14px;
+
+      font-family: Arial, sans-serif;
+    }
+
+    .message {
+      max-width: 800px;
+
+      margin: auto;
+
+      padding: 35px;
+
+      border-radius: 27px;
+
+      background: rgba(255,255,255,.48);
+
+      border: 1px solid rgba(255,255,255,.85);
+
+      box-shadow: 0 15px 45px rgba(45,105,180,.12);
+
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+
+      font-family: Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.8;
+
+      color: #174d9c;
+    }
+
+    .message strong {
+      color: #104d9e;
+    }
+
+    /* PULSANTE TI AMO */
+
+    .love {
+      display: block;
+
+      margin: 28px auto 0;
+
+      min-width: 220px;
+
+      padding: 14px 24px;
+
+      border-radius: 18px;
+
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      font-weight: bold;
+
+      transition: .2s;
+    }
+
+    .love:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,.72);
+    }
+
+    /* VERSIONE TELEFONO */
+
+    @media (max-width:650px) {
+
+      .app {
+        margin: 8px auto;
+
+        min-height: calc(100vh - 16px);
+
+        padding: 35px 18px;
+
+        border-radius: 25px;
+      }
+
+      .menu {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        min-height: 130px;
+      }
+
+      .back {
+        position: static;
+        margin-bottom: 18px;
+      }
+
+      .detail-head h2 {
+        font-size: 38px;
+      }
+
+      .message {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+<main class="app">
+
+
+  <!-- ============================= -->
+  <!-- PAGINA PRINCIPALE -->
+  <!-- ============================= -->
+
+  <section id="home" class="screen active">
+
+    <h1>
+      Ciao Fio
+      <span class="heart">💙</span>
+    </h1>
+
+    <div class="subtitle">
+      per te, amore. Utilizza questo per quando...
+    </div>
+
+
+    <div class="menu">
+
+
+      <!-- SEI TRISTE -->
+
+      <button
+        class="card"
+        onclick="showPage('triste')"
+      >
+
+        <span class="tile-icon">
+
+          <svg viewBox="0 0 48 48">
+
+            <path
+              d="M12 31h24a8 8 0 0 0 0-16
+              12 12 0 0 0-22.7 3
+              A7 7 0 0 0 12 31Z"
+            />
+
+          </svg>
+
+        </span>
+
+        sei triste
+
+      </button>
+
+
+      <!-- TI MANCO DI PIÙ -->
+
+      <button
+        class="card"
+        onclick="showPage('manco')"
+      >
+
+        <span class="tile-icon">
+
+          <svg viewBox="0 0 48 48">
+
+            <path d="M8 13h32v23H8z"/>
+
+            <path d="m9 15 15 12 15-12"/>
+
+            <path d="m9 35 11-10"/>
+
+            <path d="M39 35 28 25"/>
+
+          </svg>
+
+        </span>
+
+        ti manco di più
+
+      </button>
+
+
+      <!-- SEI ARRABBIATA -->
+
+      <button
+        class="card"
+        onclick="showPage('arrabbiata')"
+      >
+
+        <span class="tile-icon">
+
+          <svg viewBox="0 0 48 48">
+
+            <path d="M26 5 10 27h12l-2 16 18-24H26z"/>
+
+          </svg>
+
+        </span>
+
+        sei arrabbiata
+
+      </button>
+
+
+      <!-- TI SENTI SOLA -->
+
+      <button
+        class="card"
+        onclick="showPage('sola')"
+      >
+
+        <span class="tile-icon">
+
+          <svg viewBox="0 0 48 48">
+
+            <circle cx="17" cy="16" r="6"/>
+
+            <circle cx="31" cy="18" r="5"/>
+
+            <path
+              d="M7 37c0-7 4-11 10-11
+              s10 4 10 11"
+            />
+
+            <path
+              d="M24 37c0-5 3-9 8-9
+              5 0 9 4 9 9"
+            />
+
+          </svg>
+
+        </span>
+
+        ti senti sola
+
+      </button>
+
+
+    </div>
+
+
+    <!-- DATA -->
+
+    <button
+      class="footer-button"
+      onclick="showPage('extra')"
+    >
+      01/09/2026
+    </button>
+
+  </section>
+
+
+
+  <!-- ============================= -->
+  <!-- PAGINA DEI MESSAGGI -->
+  <!-- ============================= -->
+
+  <section
+    id="detail"
+    class="screen"
+  >
+  </section>
+
+
+</main>
+
+
+
+<script>
+
+
+/* ======================================
+   TESTI DELLE PAGINE
+   ====================================== */
+
+const contenuti = {
+
+
+  triste: {
+
+    titolo: "sei triste",
+
+    testo: `
+
+      <p>
+        <strong>Amore mio,</strong>
+      </p>
+
+      <p>
+        Lo so, a volte sembra che tutto vada storto
+        e che niente possa migliorare.
+      </p>
+
+      <p>
+        Ma anche le giornate più buie hanno una fine,
+        e il sole tornerà a splendere.
+      </p>
+
+      <p>
+        Non devi affrontare tutto da sola.
+        Sono qui per te, sempre.
+      </p>
+
+      <p>
+        <strong>Ti amo. 💙</strong>
+      </p>
+
+    `
+  },
+
+
+  manco: {
+
+    titolo: "ti manco di più",
+
+    testo: `
+
+      <p>
+        <strong>Amore mio,</strong>
+      </p>
+
+      <p>
+        Quando mi pensi e ti manco di più,
+        sappi che anche io penso a te.
+      </p>
+
+      <p>
+        Se solo potessi, sarei lì ad abbracciarti
+        e a non lasciarti mai più.
+      </p>
+
+      <p>
+        Ovunque tu sia, il mio cuore è sempre con te.
+      </p>
+
+      <p>
+        <strong>Ti amo. 💙</strong>
+      </p>
+
+    `
+  },
+
+
+  arrabbiata: {
+
+    titolo: "sei arrabbiata",
+
+    testo: `
+
+      <p>
+        <strong>Lo so, amore mio.</strong>
+      </p>
+
+      <p>
+        A volte le cose non vanno come vorremmo
+        e la rabbia prende il sopravvento.
+      </p>
+
+      <p>
+        Hai tutto il diritto di sentirti così.
+        Prenditi il tempo che ti serve.
+      </p>
+
+      <p>
+        Quando sei pronta, parliamone.
+        Sono qui per capirti e starti vicino.
+      </p>
+
+      <p>
+        <strong>Ti amo. 💙</strong>
+      </p>
+
+    `
+  },
+
+
+  sola: {
+
+    titolo: "ti senti sola",
+
+    testo: `
+
+      <p>
+        <strong>Non sei sola, amore mio.</strong>
+      </p>
+
+      <p>
+        Anche se le persone intorno a te
+        non ci sono sempre, io ci sono. Sempre.
+      </p>
+
+      <p>
+        Puoi contare su di me, in ogni momento.
+        Vorrei poterti stringere forte proprio adesso.
+      </p>
+
+      <p>
+        <strong>Ti amo infinitamente. 💙</strong>
+      </p>
+
+    `
+  }
+
+};
+
+
+
+/* ======================================
+   APERTURA PAGINE
+   ====================================== */
+
+function showPage(id) {
+
+
+  /*
+    Nasconde tutte le schermate
+  */
+
+  document
+    .querySelectorAll(".screen")
+    .forEach(screen => {
+
+      screen.classList.remove("active");
+
+    });
+
+
+
+  /* ================================
+     PAGINA 01/09/2026
+     ================================ */
+
+  if (id === "extra") {
+
+    document.getElementById("detail").innerHTML = `
+
+      <div class="detail-head">
+
+        <button
+          class="back"
+          onclick="goHome()"
+        >
+          ← Indietro
+        </button>
+
+        <h2>
+          CIAO AMORE!
+        </h2>
+
+      </div>
+
+
+      <div class="message">
+
+        <p>
+          CIAO AMORE.
+          Oggi è il primo settembre, nonchè data di nascita
+          della mia bellissima fidanzata, quindi come prima cosa,
+          <strong>TANTI AUGURI AMORE MIOO.</strong>
+        </p>
+
+        <p>
+          14 anni sono un'età "importante", e sono contento
+          che la mia bimba stia diventando una bimba grande,
+          sempre più speciale.
+        </p>
+
+        <p>
+          So che in questo momento magari sarai un po confusa,
+          quindi ti spiego meglio: questo è il mio regalo di
+          compleanno per te che, anche se non è molto,
+          ci tenevo a fare.
+        </p>
+
+        <p>
+          Ho creato questo sito totalmente a mano, e adesso
+          ti chiederai "e io che cazzo me ne faccio" ecco,
+          in verità la mia idea iniziale era di crearti delle
+          lettere per i vari momenti di "difficoltà" che potresti
+          avere, ma dato che non so di preciso dove vivi,
+          non avrei avuto modo di spedirtele, cosi mi è venuto
+          (stranamente) un lampo di genio, che mi ha fatto venire
+          l'idea di fare questo sito, che in breve ha le stesse
+          funzioni della lettera.
+        </p>
+
+        <p>
+          Quando ti sentirai in uno dei modi descritti nei 4
+          pulsanti sopra a questo, potrai cliccarlo e ti sbucherà
+          un testo per ogni situazione, che spero possa nel mio
+          piccolo aiutarti.
+        </p>
+
+        <p>
+          Ah, un altra cosa, tu eri convinta che la cosa che
+          ti ho comprato fosse per il tuo compleanno, ma invece
+          non è per oggi, quindi ti chiedo scusa se magari come
+          regalo ti aspettavi un altra cosa ma dovrai aspettare
+          un altro po. Tranquilla che arriva però.
+        </p>
+
+        <p>
+          Detto questo ti auguro tanti auguri e di passare
+          al meglio questo giorno, mi raccomando di non sbirciare
+          cosa ce scritto in ogni pulsante.
+        </p>
+
+        <p>
+          <strong>
+            Ci sono sempre Fio, ricordalo.
+          </strong>
+        </p>
+
+        <p>
+          <strong>
+            Ti amo tanto, il tuo Ale💙
+          </strong>
+        </p>
+
+      </div>
+
+    `;
+
+  }
+
+
+
+  /* ================================
+     LE ALTRE QUATTRO PAGINE
+     ================================ */
+
+  else {
+
+    const pagina = contenuti[id];
+
+
+    document.getElementById("detail").innerHTML = `
+
+      <div class="detail-head">
+
+        <button
+          class="back"
+          onclick="goHome()"
+        >
+          ← Indietro
+        </button>
+
+        <h2>
+          ${pagina.titolo}
+        </h2>
+
+      </div>
+
+
+      <div class="message">
+
+        ${pagina.testo}
+
+
+        <button
+          class="love"
+          onclick="sayLove(this)"
+        >
+          Ti amo 💙
+        </button>
+
+      </div>
+
+    `;
+
+  }
+
+
+
+  /*
+    Mostra la schermata
+  */
+
+  document
+    .getElementById("detail")
+    .classList.add("active");
+
+
+  /*
+    Torna all'inizio
+  */
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+
+/* ======================================
+   TORNA ALLA HOME
+   ====================================== */
+
+function goHome() {
+
+  document
+    .querySelectorAll(".screen")
+    .forEach(screen => {
+
+      screen.classList.remove("active");
+
+    });
+
+
+  document
+    .getElementById("home")
+    .classList.add("active");
+
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+
+/* ======================================
+   PULSANTE TI AMO
+   ====================================== */
+
+function sayLove(button) {
+
+  button.textContent =
+    "sono sempre qui, ricordalo 💙";
+
+}
+
+
+</script>
+
+</body>
+</html>
+```
