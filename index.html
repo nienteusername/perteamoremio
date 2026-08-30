@@ -120,9 +120,8 @@
     .card:hover {
       transform: translateY(-6px);
       background: rgba(255,255,255,.68);
+      box-shadow: 0 20px 45px rgba(45,105,180,.2);
     }
-
-    /* ICONE DEI QUATTRO PULSANTI */
 
     .tile-icon {
       display: block;
@@ -143,8 +142,6 @@
       stroke-linecap: round;
       stroke-linejoin: round;
     }
-
-    /* PULSANTE 01/09/2026 */
 
     .footer-button {
       display: block;
@@ -168,8 +165,6 @@
       transform: translateY(-3px);
       background: rgba(255,255,255,.72);
     }
-
-    /* PAGINE INTERNE */
 
     .detail-head {
       text-align: center;
@@ -225,8 +220,6 @@
       color: #104d9e;
     }
 
-    /* PULSANTE TI AMO */
-
     .love {
       display: block;
 
@@ -249,8 +242,6 @@
       transform: translateY(-3px);
       background: rgba(255,255,255,.72);
     }
-
-    /* VERSIONE TELEFONO */
 
     @media (max-width:650px) {
 
@@ -294,9 +285,7 @@
 <main class="app">
 
 
-  <!-- ============================= -->
   <!-- PAGINA PRINCIPALE -->
-  <!-- ============================= -->
 
   <section id="home" class="screen active">
 
@@ -439,9 +428,7 @@
 
 
 
-  <!-- ============================= -->
   <!-- PAGINA DEI MESSAGGI -->
-  <!-- ============================= -->
 
   <section
     id="detail"
@@ -464,35 +451,43 @@
 const contenuti = {
 
 
- ```javascript
-triste: {
+  /* ==========================
+     SEI TRISTE
+     ========================== */
 
-  titolo: "sei triste",
+  triste: {
 
-  testo: `
+    titolo: "sei triste",
 
-    <p>
-      Ciao Amore.
-    </p>
+    testo: `
 
-    <p>
-      Se stai leggendo questo significa che sei triste.
-      Mi dispiace che tu stia così, ma ricordati che ogni cosa passa, sempre.
-    </p>
+      <p>
+        Ciao Amore.
+      </p>
 
-    <p>
-      È normale stare male a volte, ma non devi per forza affrontare tutto da sola,
-      perciò se hai bisogno puoi scrivermi e magari riesco ad aiutarti più nello specifico.
-    </p>
+      <p>
+        Se stai leggendo questo significa che sei triste.
+        Mi dispiace che tu stia così, ma ricordati che ogni cosa passa, sempre.
+      </p>
 
-    <p>
-      Non stare giù, prova a pensare a qualcosa di bello che ti rende felice,
-      ricordati che ci sono sempre.
-    </p>
+      <p>
+        È normale stare male a volte, ma non devi per forza
+        affrontare tutto da sola, perciò se hai bisogno puoi
+        scrivermi e magari riesco ad aiutarti più nello specifico.
+      </p>
 
-  `
-},
+      <p>
+        Non stare giù, prova a pensare a qualcosa di bello
+        che ti rende felice, ricordati che ci sono sempre.
+      </p>
 
+    `
+  },
+
+
+  /* ==========================
+     TI MANCO DI PIÙ
+     ========================== */
 
   manco: {
 
@@ -526,6 +521,10 @@ triste: {
   },
 
 
+  /* ==========================
+     SEI ARRABBIATA
+     ========================== */
+
   arrabbiata: {
 
     titolo: "sei arrabbiata",
@@ -558,6 +557,10 @@ triste: {
     `
   },
 
+
+  /* ==========================
+     TI SENTI SOLA
+     ========================== */
 
   sola: {
 
@@ -612,7 +615,7 @@ function showPage(id) {
 
 
   /* ================================
-     PAGINA 01/09/2026
+     PAGINA DEL COMPLEANNO
      ================================ */
 
   if (id === "extra") {
@@ -711,7 +714,7 @@ function showPage(id) {
 
 
   /* ================================
-     LE ALTRE QUATTRO PAGINE
+     LE ALTRE PAGINE
      ================================ */
 
   else {
