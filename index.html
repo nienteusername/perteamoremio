@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Ciao Fio 💙</title>
 
   <style>
+
     * {
       box-sizing: border-box;
     }
@@ -14,8 +17,11 @@
     body {
       margin: 0;
       min-height: 100vh;
+
       font-family: Georgia, serif;
+
       color: #104d9e;
+
       background: linear-gradient(
         135deg,
         #dff0ff,
@@ -26,8 +32,9 @@
 
     .app {
       width: min(1000px, 94%);
-      margin: 28px auto;
       min-height: calc(100vh - 56px);
+
+      margin: 28px auto;
       padding: 55px clamp(20px, 5vw, 65px);
 
       border: 1px solid rgba(255,255,255,.85);
@@ -43,6 +50,7 @@
 
     .screen {
       display: none;
+
       animation: comparsa .4s ease;
     }
 
@@ -51,6 +59,7 @@
     }
 
     @keyframes comparsa {
+
       from {
         opacity: 0;
         transform: translateY(12px);
@@ -60,14 +69,18 @@
         opacity: 1;
         transform: translateY(0);
       }
+
     }
 
     h1 {
+      margin: 0;
+
       text-align: center;
+
       font-size: clamp(58px, 9vw, 95px);
+
       font-weight: 400;
       font-style: italic;
-      margin: 0;
     }
 
     .heart {
@@ -75,24 +88,39 @@
     }
 
     .subtitle {
-      text-align: center;
-      font-family: Arial, sans-serif;
-      font-size: 17px;
+
       margin: 18px 0 42px;
+
+      text-align: center;
+
+      font-family: Arial, sans-serif;
+
+      font-size: 17px;
     }
 
     .menu {
+
       display: grid;
+
       grid-template-columns: 1fr 1fr;
+
       gap: 18px;
+
       max-width: 760px;
+
       margin: auto;
+    }
+
+    button {
+
+      -webkit-tap-highlight-color: transparent;
     }
 
     .card,
     .love,
     .back,
     .footer-button {
+
       border: 1px solid rgba(255,255,255,.9);
 
       background: rgba(255,255,255,.48);
@@ -103,37 +131,54 @@
       -webkit-backdrop-filter: blur(14px);
 
       color: #104d9e;
+
       cursor: pointer;
     }
 
     .card {
+
       min-height: 165px;
+
       border-radius: 25px;
 
       font-family: Georgia, serif;
+
       font-size: 25px;
 
       transition: .25s;
     }
 
     .card:hover {
+
       transform: translateY(-6px);
+
       background: rgba(255,255,255,.68);
+
       box-shadow: 0 20px 45px rgba(45,105,180,.2);
     }
 
+    .card:active {
+
+      transform: scale(.98);
+    }
+
     .tile-icon {
+
       display: block;
+
       width: 42px;
       height: 42px;
+
       margin: 0 auto 15px;
     }
 
     .tile-icon svg {
+
       width: 100%;
       height: 100%;
 
       fill: none;
+
       stroke: #398df4;
 
       stroke-width: 2.2;
@@ -143,54 +188,79 @@
     }
 
     .footer-button {
+
       display: block;
+
+      min-width: 180px;
 
       margin: 34px auto 0;
 
-      padding: 13px 28px;
-
-      min-width: 180px;
+      padding: 15px 30px;
 
       border-radius: 17px;
 
       font-family: Arial, sans-serif;
-      font-size: 16px;
+
+      font-size: 17px;
+
       font-style: italic;
 
       transition: .2s;
     }
 
     .footer-button:hover {
+
       transform: translateY(-3px);
+
       background: rgba(255,255,255,.72);
     }
 
+    .footer-button:active {
+
+      transform: scale(.97);
+    }
+
     .detail-head {
-      text-align: center;
+
       position: relative;
+
       margin-bottom: 25px;
+
+      text-align: center;
     }
 
     .detail-head h2 {
-      font-size: 46px;
-      font-weight: 400;
+
       margin: 10px;
+
+      font-size: 46px;
+
+      font-weight: 400;
     }
 
     .back {
+
       position: absolute;
 
-      left: 0;
       top: 0;
+      left: 0;
 
       padding: 10px 16px;
 
       border-radius: 14px;
 
       font-family: Arial, sans-serif;
+
+      transition: .2s;
+    }
+
+    .back:hover {
+
+      background: rgba(255,255,255,.72);
     }
 
     .message {
+
       max-width: 800px;
 
       margin: auto;
@@ -209,45 +279,63 @@
       -webkit-backdrop-filter: blur(16px);
 
       font-family: Arial, sans-serif;
+
       font-size: 17px;
+
       line-height: 1.8;
 
       color: #174d9c;
     }
 
     .message strong {
+
       color: #104d9e;
+
+      font-weight: 700;
     }
 
     .love {
+
       display: block;
 
-      margin: 28px auto 0;
-
       min-width: 220px;
+
+      margin: 28px auto 0;
 
       padding: 14px 24px;
 
       border-radius: 18px;
 
       font-family: Arial, sans-serif;
+
       font-size: 15px;
+
       font-weight: bold;
 
       transition: .2s;
     }
 
     .love:hover {
+
       transform: translateY(-3px);
+
       background: rgba(255,255,255,.72);
     }
 
-    @media (max-width:650px) {
+    .love:active {
+
+      transform: scale(.97);
+    }
+
+    @media (max-width: 650px) {
 
       .app {
-        margin: 8px auto;
+
+        width: 96%;
 
         min-height: calc(100vh - 16px);
+
+        margin: 8px auto;
 
         padding: 35px 18px;
 
@@ -255,42 +343,53 @@
       }
 
       .menu {
+
         grid-template-columns: 1fr;
       }
 
       .card {
+
         min-height: 130px;
       }
 
       .back {
+
         position: static;
+
         margin-bottom: 18px;
       }
 
       .detail-head h2 {
+
         font-size: 38px;
       }
 
       .message {
+
         padding: 24px;
+
+        font-size: 16px;
       }
+
     }
+
   </style>
+
 </head>
 
 
 <body>
 
+
 <main class="app">
 
 
-  <!-- PAGINA PRINCIPALE -->
+  <!-- HOME -->
 
   <section id="home" class="screen active">
 
     <h1>
-      Ciao Fio
-      <span class="heart">💙</span>
+      Ciao Fio <span class="heart">💙</span>
     </h1>
 
     <div class="subtitle">
@@ -304,6 +403,7 @@
       <!-- SEI TRISTE -->
 
       <button
+        type="button"
         class="card"
         onclick="showPage('triste')"
       >
@@ -330,6 +430,7 @@
       <!-- TI MANCO DI PIÙ -->
 
       <button
+        type="button"
         class="card"
         onclick="showPage('manco')"
       >
@@ -358,6 +459,7 @@
       <!-- SEI ARRABBIATA -->
 
       <button
+        type="button"
         class="card"
         onclick="showPage('arrabbiata')"
       >
@@ -380,6 +482,7 @@
       <!-- TI SENTI SOLA -->
 
       <button
+        type="button"
         class="card"
         onclick="showPage('sola')"
       >
@@ -410,13 +513,13 @@
 
       </button>
 
-
     </div>
 
 
     <!-- DATA -->
 
     <button
+      type="button"
       class="footer-button"
       onclick="showPage('extra')"
     >
@@ -427,12 +530,13 @@
 
 
 
-  <!-- PAGINA DEI MESSAGGI -->
+  <!-- SCHERMATA SECONDARIA -->
 
   <section
     id="detail"
     class="screen"
   >
+
   </section>
 
 
@@ -443,16 +547,13 @@
 <script>
 
 
-/* ======================================
-   TESTI DELLE PAGINE
-   ====================================== */
+/* ==========================================
+   CONTENUTI DELLE QUATTRO SITUAZIONI
+   ========================================== */
+
 
 const contenuti = {
 
-
-  /* ==========================
-     SEI TRISTE
-     ========================== */
 
   triste: {
 
@@ -484,149 +585,145 @@ const contenuti = {
   },
 
 
-  /* ==========================
-     TI MANCO DI PIÙ
-     ========================== */
+  manco: {
 
-manco: {
+    titolo: "ti manco di più",
 
-  titolo: "ti manco di più",
+    testo: `
 
-  testo: `
+      <p>
+        Ciao Amore.
+      </p>
 
-    <p>
-      Ciao Amore.
-    </p>
+      <p>
+        Inizio col dirti che sono sicuro che in questo momento
+        mi manchi anche tu e che ti penso sempre.
+      </p>
 
-    <p>
-      Inizio col dirti che sono sicuro che in questo momento
-      mi manchi anche tu e che ti penso sempre.
-    </p>
+      <p>
+        Mi dispiace se in questo momento magari non ci sono,
+        ma ti prometto che appena potrò staremo tutto il tempo
+        che vuoi insieme.
+      </p>
 
-    <p>
-      Mi dispiace se in questo momento magari non ci sono,
-      ma ti prometto che appena potrò staremo tutto il tempo
-      che vuoi insieme.
-    </p>
+      <p>
+        Ricordati però che anche se non ci sono ti porto con me
+        nel mio cuoricino, e anche io sono sempre con te.
+      </p>
 
-    <p>
-      Ricordati però che anche se non ci sono ti porto con me
-      nel mio cuoricino, e anche io sono sempre con te.
-    </p>
-
-  `
-},
-  
+    `
+  },
 
 
-  /* ==========================
-     SEI ARRABBIATA
-     ========================== */
+  arrabbiata: {
 
- arrabbiata: {
+    titolo: "sei arrabbiata",
 
-  titolo: "sei arrabbiata",
+    testo: `
 
-  testo: `
+      <p>
+        Ciao Amore.
+      </p>
 
-    <p>
-      Ciao Amore.
-    </p>
+      <p>
+        A volte succede di innervosirsi e di far prendere
+        alla rabbia il sopravvento.
+      </p>
 
-    <p>
-      A volte succede di innervosirsi e di far prendere
-      alla rabbia il sopravvento.
-    </p>
+      <p>
+        Come prima cosa se sei agitata prova a utilizzare
+        il 4-7-8, ossia inspira dal naso per 4 secondi,
+        trattieni il fiato per 7 e butta fuori lentamente
+        dalla bocca per 8 secondi.
+      </p>
 
-    <p>
-      Come prima cosa se sei agitata prova a utilizzare
-      il 4-7-8, ossia inspira dal naso per 4 secondi,
-      trattieni il fiato per 7 e butta fuori lentamente
-      dalla bocca per 8 secondi. Non so se questa cosa può
-      aiutarti ma prova.
-    </p>
+      <p>
+        Non so se questa cosa può aiutarti ma prova.
+      </p>
 
-    <p>
-      Ricordati anche che innervosirsi è normale, e serve
-      un po anche al nostro corpo per sfogarsi, quindi
-      prenditi tutto il tempo che ti serve e ricordati
-      che sono qui.
-    </p>
+      <p>
+        Ricordati anche che innervosirsi è normale, e serve
+        un po anche al nostro corpo per sfogarsi, quindi
+        prenditi tutto il tempo che ti serve e ricordati
+        che sono qui.
+      </p>
 
-  `
-},
+    `
+  },
 
-  /* ==========================
-     TI SENTI SOLA
-     ========================== */
 
   sola: {
 
-  titolo: "ti senti sola",
+    titolo: "ti senti sola",
 
-  testo: `
+    testo: `
 
-    <p>
-      Ciao Amore.
-    </p>
+      <p>
+        Ciao Amore.
+      </p>
 
-    <p>
-      Sentirsi soli è molto brutta come cosa, e mi dispiace
-      il non poterci essere fisicamente nemmeno io a causa
-      della distanza.
-    </p>
+      <p>
+        Sentirsi soli è molto brutta come cosa, e mi dispiace
+        il non poterci essere fisicamente nemmeno io a causa
+        della distanza.
+      </p>
 
-    <p>
-      Ricordati però, che se hai bisogno di una persona a cui
-      raccontare una qualsiasi cosa io ci sono sempre, se hai
-      bisogno di sfogarti sono qua.
-    </p>
+      <p>
+        Ricordati però, che se hai bisogno di una persona a cui
+        raccontare una qualsiasi cosa io ci sono sempre, se hai
+        bisogno di sfogarti sono qua.
+      </p>
 
-    <p>
-      <strong>
-        Non sei e non sarai mai sola per davvero Fio
-      </strong>
-    </p>
+      <p>
+        <strong>
+          Non sei e non sarai mai sola per davvero Fio
+        </strong>
+      </p>
 
-  
-}
+    `
+  }
 
 };
 
 
 
-/* ======================================
-   APERTURA PAGINE
-   ====================================== */
+/* ==========================================
+   MOSTRA UNA PAGINA
+   ========================================== */
+
 
 function showPage(id) {
 
 
-  /*
-    Nasconde tutte le schermate
-  */
+  const home = document.getElementById("home");
 
-  document
-    .querySelectorAll(".screen")
-    .forEach(screen => {
-
-      screen.classList.remove("active");
-
-    });
+  const detail = document.getElementById("detail");
 
 
+  /* Nasconde la home */
 
-  /* ================================
-     PAGINA DEL COMPLEANNO
-     ================================ */
+  home.classList.remove("active");
+
+
+  /* Cancella il contenuto precedente */
+
+  detail.innerHTML = "";
+
+
+  /* ========================================
+     PAGINA 01/09/2026
+     ======================================== */
+
 
   if (id === "extra") {
 
-    document.getElementById("detail").innerHTML = `
+
+    detail.innerHTML = `
 
       <div class="detail-head">
 
         <button
+          type="button"
           class="back"
           onclick="goHome()"
         >
@@ -668,7 +765,7 @@ function showPage(id) {
           in verità la mia idea iniziale era di crearti delle
           lettere per i vari momenti di "difficoltà" che potresti
           avere, ma dato che non so di preciso dove vivi,
-          non avrei avuto modo di spedirtele, cosi mi è venuto
+          non avrei avuto modo di spedirtele, così mi è venuto
           (stranamente) un lampo di genio, che mi ha fatto venire
           l'idea di fare questo sito, che in breve ha le stesse
           funzioni della lettera.
@@ -711,24 +808,36 @@ function showPage(id) {
 
     `;
 
+
   }
 
 
+  /* ========================================
+     PAGINE DELLE SITUAZIONI
+     ======================================== */
 
-  /* ================================
-     LE ALTRE PAGINE
-     ================================ */
 
   else {
+
 
     const pagina = contenuti[id];
 
 
-    document.getElementById("detail").innerHTML = `
+    if (!pagina) {
+
+      console.error("Pagina non trovata:", id);
+
+      return;
+
+    }
+
+
+    detail.innerHTML = `
 
       <div class="detail-head">
 
         <button
+          type="button"
           class="back"
           onclick="goHome()"
         >
@@ -748,6 +857,7 @@ function showPage(id) {
 
 
         <button
+          type="button"
           class="love"
           onclick="sayLove(this)"
         >
@@ -761,63 +871,53 @@ function showPage(id) {
   }
 
 
+  /* Mostra la pagina */
 
-  /*
-    Mostra la schermata
-  */
-
-  document
-    .getElementById("detail")
-    .classList.add("active");
+  detail.classList.add("active");
 
 
-  /*
-    Torna all'inizio
-  */
+  /* Torna in cima */
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
+  window.scrollTo(0, 0);
 
 }
 
 
 
-/* ======================================
+/* ==========================================
    TORNA ALLA HOME
-   ====================================== */
+   ========================================== */
+
 
 function goHome() {
 
-  document
-    .querySelectorAll(".screen")
-    .forEach(screen => {
 
-      screen.classList.remove("active");
+  const home = document.getElementById("home");
 
-    });
+  const detail = document.getElementById("detail");
 
 
-  document
-    .getElementById("home")
-    .classList.add("active");
+  detail.classList.remove("active");
+
+  home.classList.add("active");
 
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
+  detail.innerHTML = "";
+
+
+  window.scrollTo(0, 0);
 
 }
 
 
 
-/* ======================================
-   PULSANTE TI AMO
-   ====================================== */
+/* ==========================================
+   PULSANTE "TI AMO"
+   ========================================== */
+
 
 function sayLove(button) {
+
 
   button.textContent =
     "sono sempre qui, ricordalo 💙";
@@ -827,6 +927,8 @@ function sayLove(button) {
 
 </script>
 
+
 </body>
+
 </html>
 ```
